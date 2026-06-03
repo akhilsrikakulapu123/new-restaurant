@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <title>Restaurant Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+    <div class="top">
+      <div class="logo">Madhuri Restaurant
+      </div>
+      <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="location.html">Location</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="heading">
+      <div class="left">
+        <p>Craving Delicious Food?</p>
+        <h1>Don't Wait</h1>
+        <p>Let’s start your dining experience today</p>
+
+        <a href="menu.html">
+          <button type="button">Check Out Menu</button>
+        </a>
+      </div>
+
+      <div class="right" id="food"></div>
+    </div>
+
+    <div class="bottom">
+      <div class="menu">
+        <div id="food1"></div>
+        <div id="food2"></div>
+        <div id="food3"></div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <!-- About Section -->
+        <div class="footer-about">
+          <h3>About Madhuri Restaurant</h3>
+          <p>
+            Experience the best of culinary delights at Madhuri Restaurant. From
+            traditional recipes to modern flavors, we bring you an unforgettable
+            dining experience.
+          </p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="footer-contact">
+          <h3>Contact Us</h3>
+          <p>
+            <i class="fas fa-location-dot"></i> 123 Main Street, 
+            Amamaapuram, Andhra Pradesh, 533201.
+          </p>
+          <p><i class="fas fa-phone"></i> +91 7013422889</p>
+          <p><i class="fas fa-envelope"></i> info@madhurirestaurant.com</p>
+        </div>
+
+        <!-- Social Media Links -->
+        <div class="footer-social">
+          <h3>Follow Us</h3>
+          <a
+            href="https://www.instagram.com/akhil__srikakulapu/?__pwa=1#"
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://x.com/?lang=en" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://www.youtube.com/" target="_blank"
+            ><i class="fab fa-youtube"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="footer-feedback">
+        <h3>Feedback</h3>
+        <form id="feedbackForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Feedback:</label>
+            <textarea id="message" name="message" rows="4" placeholder="Your Feedback" required></textarea>
+          </div>
+          <button type="submit">Submit Feedback</button>
+        </form>
+      </div>
+      
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Madhuri Restaurant. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

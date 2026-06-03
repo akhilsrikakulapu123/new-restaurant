@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Menu</title>
+    <link rel="stylesheet" href="menu_style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+
+    <div class="home-nav">
+        <div class="logo"><a href="index.html">Madhuri Restaurant</a></div>
+        
+    </div>
+
+    <!-- Navbar for selecting cuisine -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#" data-cuisine="All">All</a></li>
+            <li><a href="#" data-cuisine="South Indian">South Indian</a></li>
+            <li><a href="#" data-cuisine="Maharashtrian">Maharashtrian</a></li>
+            <li><a href="#" data-cuisine="Punjabi">Punjabi</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Our Menu</h1>
+
+        <div id="food-list" class="food-list"></div> <!-- Food items will be generated here -->
+    </div>
+
+    <script src="menu_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cart - Madhuri Restaurant</title>
+  <link rel="stylesheet" href="menu_style.css" />
+  <style>
+    .cart { padding:20px; max-width:900px; margin:0 auto }
+    .cart-item { display:flex; gap:12px; align-items:center; padding:10px; border-bottom:1px solid #eee }
+    .cart-item img{width:80px;height:80px;object-fit:cover;border-radius:8px}
+    .qty-controls button{width:36px;height:36px;border-radius:6px}
+    .remove { width:36px; height:36px; font-size:16px; border-radius:6px; background:#ff6b6b; color:#fff; border:none; cursor:pointer }
+    .remove:hover{ opacity:0.95 }
+    .total {text-align:right;margin-top:12px;font-weight:bold}
+  </style>
+</head>
+<body>
+  <div class="home-nav"><div class="logo"><a href="index.html">Madhuri Restaurant</a></div></div>
+  <div class="cart">
+    <h1>Your Cart</h1>
+    <div id="items"></div>
+    <p class="total">Total: <span id="totalAmt">Rs.0</span></p>
+    <div style="margin-top:12px">
+      <button id="continue">Continue Shopping</button>
+      <button id="checkout">Proceed to Payment</button>
+    </div>
+  </div>
+  <script>
+    function render(){
+      const itemsDiv=document.getElementById('items');
+      const cart=JSON.parse(localStorage.getItem('cart')||'[]');
+      itemsDiv.innerHTML='';
+      let total=0;
+      cart.forEach((it,idx)=>{
+        const priceNum=(it.price||'0').match(/(\d+)/); const p=priceNum?Number(priceNum[1]):0;
+        total += p * (it.qty||1);
+        const el=document.createElement('div'); el.className='cart-item';
+        el.innerHTML = `<img src="${it.image}" alt="${it.name}"/><div style="flex:1"><h3>${it.name}</h3><p>${it.price}</p><div class="qty-controls"><button data-idx="${idx}" class="decr">-</button><input value="${it.qty||1}" style="width:40px;text-align:center" data-idx="${idx}" class="qty"/><button data-idx="${idx}" class="incr">+</button> <button data-idx="${idx}" class="remove">✕</button></div></div>`;
+        itemsDiv.appendChild(el);
+      });
+      document.getElementById('totalAmt').textContent='Rs.'+total;
+      // handlers
+      document.querySelectorAll('.incr').forEach(b=>b.onclick=e=>{ const i=b.dataset.idx; cart[i].qty=(cart[i].qty||1)+1; localStorage.setItem('cart',JSON.stringify(cart)); render();});
+      document.querySelectorAll('.decr').forEach(b=>b.onclick=e=>{ const i=b.dataset.idx; cart[i].qty=Math.max(1,(cart[i].qty||1)-1); localStorage.setItem('cart',JSON.stringify(cart)); render();});
+      document.querySelectorAll('.remove').forEach(b=>b.onclick=e=>{ const i=b.dataset.idx; cart.splice(i,1); localStorage.setItem('cart',JSON.stringify(cart)); render();});
+      document.querySelectorAll('.qty').forEach(inp=>inp.onchange=e=>{ const i=inp.dataset.idx; cart[i].qty=Math.max(1,Number(inp.value)||1); localStorage.setItem('cart',JSON.stringify(cart)); render();});
+    }
+    document.getElementById('continue').addEventListener('click', ()=>{ window.location.href='/menu.html';});
+    document.getElementById('checkout').addEventListener('click', ()=>{ window.location.href='/checkout.html';});
+    render();
+  </script>
+</body>
+</html>

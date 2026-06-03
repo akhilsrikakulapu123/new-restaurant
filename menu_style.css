@@ -1,0 +1,197 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* attractive gradient background */
+    background: linear-gradient(135deg, #fff7f0 0%, #ffe7d6 35%, #ffd1e0 100%);
+    min-height: 100vh;
+}
+
+.logo a{
+    font-size: 30px;
+    color:orange;
+}
+.home-nav {
+    padding: 10px 16px;
+    background-color: #333;
+    color: orange;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-nav a {
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: #444;
+    padding: 10px 20px;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.button {
+    justify-content:  center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+.container {
+    padding: 24px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 12px;
+    max-width: 1100px;
+    margin: 28px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.food-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding:20px;
+}
+
+.food-item {
+    border: 2px solid #ddd;
+    border-radius: 30px;
+    padding: 20px;
+    width: 220px;
+    text-align: center;
+}
+
+.food-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.price {
+    font-weight: bold;
+    color: green;
+}
+
+/* Recipe modal */
+.recipe-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.45);
+    z-index: 10000;
+}
+.recipe-card {
+    width: min(760px, 95%);
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    max-height: 80vh;
+    overflow: auto;
+}
+.recipe-card h2 { margin-top:0 }
+.recipe-close { position: absolute; right: 18px; top: 14px; background:transparent; border:none; font-size:22px; cursor:pointer }
+/* Suggested items styling */
+.suggested-item {
+    width: 150px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.suggested-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.suggested-item img { width:120px; height:80px; object-fit:cover; border-radius:6px }
+.suggested-item .s-name { font-size:14px; font-weight:600; text-align:center }
+.suggested-item .s-price { font-size:13px; color:#666 }
+.suggested-item .add-btn { margin-top:6px; padding:6px 8px; border-radius:6px; background: #ff8c00; color:#fff; border:none; cursor:pointer }
+.suggested-item .add-btn:hover{ opacity:0.95 }
+
+/* Suggestions row: horizontal layout to avoid empty vertical space */
+.suggestions-row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 8px 4px;
+    -webkit-overflow-scrolling: touch;
+}
+.suggestions-row::-webkit-scrollbar { height: 8px }
+.suggestions-row::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 4px }
+.suggestions-wrapper h2 { margin: 0 0 8px 8px; }
+
+/* Toast notification */
+.toast-container {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.toast {
+    background: rgba(0,0,0,0.85);
+    color: #fff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    font-size: 14px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.container h1 {
+    font-size: 36px;
+    color: orange; /* Match the logo color */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container p {
+    line-height: 1.6; /* Improve readability */
+    text-align: justify; /* Justify text for better alignment */
+    margin-bottom: 20px;
+}
+#map-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+iframe {
+    border-radius: 8px; /* Rounded corners for the map */
+}
+
+/* Cart icon in header */
+.cart-icon a { color: orange; text-decoration: none; position: relative; display: inline-flex; align-items:center; gap:8px }
+.cart-icon .fa-shopping-cart { font-size: 20px }
+.cart-badge { position: absolute; top: -6px; right: -6px; background: #ff3b30; color: #fff; font-size: 12px; padding: 2px 6px; border-radius: 12px; min-width:18px; text-align:center }
