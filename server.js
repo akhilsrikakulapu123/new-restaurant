@@ -28,7 +28,7 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', environment: process.env.NODE_ENV || 'development' });
 });
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/madhuri_restaurant';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://akhilsrikakulapu2005_db_user:0QJmH7Ab83vFg3WU@cluster0.y6zhekn.mongodb.net/madhuri_restaurant';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(MONGO_URI)
